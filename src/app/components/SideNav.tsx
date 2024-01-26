@@ -9,7 +9,7 @@ export default async function SideNav (): Promise<JSX.Element | null> {
   return (
 
       <div
-          className=" flex flex-col gap-8 h-screen w-auto
+          className=" flex flex-col gap-12 h-screen w-auto
            md:w-[10%] border-r-[1px] border-r-neutral-300 pl-4 pr-4 pt-12 pb-2
            items-center">
           {!userId
@@ -35,8 +35,12 @@ export default async function SideNav (): Promise<JSX.Element | null> {
             <Link href={'/about'}>
               <li className='hidden md:font-medium md:flex'>About the creator</li>
             </Link>
-            <Button className='md:w-max md:flex hidden'><SignOutButton/></Button>
+
           </ul>
+          <Link href={'/'}>
+            <h1 className='lg:text-3xl font-black pt-48 pb-28 text-sm'>Travelffre</h1>
+          </Link>
+            <Button className='md:w-full md:flex hidden'><SignOutButton/></Button>
 
     </>
   }
