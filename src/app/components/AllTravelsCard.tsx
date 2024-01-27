@@ -8,17 +8,12 @@ import {
   TableRow
 } from '@/components/ui/table'
 import { type Trip } from '@/lib/types'
-import { auth } from '@clerk/nextjs'
 
 export default function AllTravelsCard ({ trips }: { trips: Trip[] }): JSX.Element {
-  const { userId } = auth()
-
-  const userTrips = trips.filter(trip => trip.userId === userId)
-
   return (
-      <div className="flex flex-col gap-4 overflow-scroll w-2/5 h-full rounded-md shadow-sm shadow-slate-300 p-4">
+      <div className="flex flex-col gap-4 overflow-scroll w-3/5 h-full rounded-md shadow-sm shadow-slate-300 p-4">
           <div>
-              <h1 className="text-xl text-center font-medium">All my travels 🛫</h1>
+              <h1 className="text-xl text-center font-medium">All trips 🛫</h1>
           </div>
                 <Table>
                     <TableCaption>Your travelling history.</TableCaption>
@@ -31,7 +26,7 @@ export default function AllTravelsCard ({ trips }: { trips: Trip[] }): JSX.Eleme
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                  {userTrips.map((trip) => {
+                  {trips.map((trip) => {
                     return (
                                 <TableRow key={trip._id}>
                                     <TableCell>{trip.from}</TableCell>
