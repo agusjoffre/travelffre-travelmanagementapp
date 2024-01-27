@@ -29,7 +29,7 @@ export default function SortTrips ({ setSortedTrips, trips }:
                     </SelectTrigger>
                     <SelectContent defaultValue={'all'} >
                       <SelectItem value="disordered">Disordered</SelectItem>
-                      <SelectItem value="recent">Recent</SelectItem>
+                      <SelectItem value="recent">Newest</SelectItem>
                       <SelectItem value="oldest">Oldest</SelectItem>
                       <SelectItem value="alphabetical">Alphabetical</SelectItem>
                     </SelectContent>

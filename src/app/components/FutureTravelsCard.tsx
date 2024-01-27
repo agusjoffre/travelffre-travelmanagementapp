@@ -27,9 +27,9 @@ export default function FutureTravelsCard ({ trips }: { trips: Trip[] }): JSX.El
   return (
       <div
           className="flex flex-col gap-4
-           overflow-scroll w-2/5 h-fit
+           overflow-scroll w-100% h-fit max-h-[35vh]
             rounded-md shadow-sm shadow-slate-300
-             p-4 mr-8">
+             p-4">
           <div className='flex justify-between items-center'>
               <h1 className="text-xl text-center font-medium">Planned trips 🛫</h1>
                 <SortTrips setSortedTrips={setSortedTrips} trips={trips}/>
