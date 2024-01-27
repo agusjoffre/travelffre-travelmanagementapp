@@ -1,3 +1,4 @@
+'use client'
 import { type Trip } from '@/lib/types'
 import {
   Table,
@@ -14,11 +15,14 @@ import {
   TooltipProvider,
   TooltipTrigger
 } from '@/components/ui/tooltip'
+import { useState } from 'react'
+import SortTrips from '@/app/components/SortTrips'
 
-export default async function FutureTravelsCard ({ trips }: { trips: Trip[] }): Promise<JSX.Element> {
+export default function FutureTravelsCard ({ trips }: { trips: Trip[] }): JSX.Element {
+  const [sortedTrips, setSortedTrips] = useState<Trip[]>(trips)
   const today = new Date()
   const oneWeekToGo = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000)
-  const futureTrips: Trip[] = trips.filter((trip) => new Date(trip.startDate) > today)
+  const futureTrips: Trip[] = sortedTrips.filter((trip) => new Date(trip.startDate) > today)
 
   return (
       <div
@@ -26,8 +30,9 @@ export default async function FutureTravelsCard ({ trips }: { trips: Trip[] }): 
            overflow-scroll w-2/5 h-fit
             rounded-md shadow-sm shadow-slate-300
              p-4 mr-8">
-          <div>
+          <div className='flex justify-between items-center'>
               <h1 className="text-xl text-center font-medium">Planned trips 🛫</h1>
+                <SortTrips setSortedTrips={setSortedTrips} trips={trips}/>
           </div>
                 <Table>
                     <TableCaption>Your planned trips.</TableCaption>
@@ -35,7 +40,7 @@ export default async function FutureTravelsCard ({ trips }: { trips: Trip[] }): 
                         <TableRow>
                         <TableHead >From</TableHead>
                         <TableHead>To</TableHead>
-                        <TableHead>Arrival date</TableHead>
+                        <TableHead >Arrival date</TableHead>
                         <TableHead className="text-right">Return date</TableHead>
                         </TableRow>
                     </TableHeader>

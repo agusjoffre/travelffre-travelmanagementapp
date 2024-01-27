@@ -1,3 +1,4 @@
+'use client'
 import {
   Table,
   TableBody,
@@ -7,13 +8,18 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui/table'
+import SortTrips from '@/app/components/SortTrips'
+
 import { type Trip } from '@/lib/types'
+import { useState } from 'react'
 
 export default function AllTravelsCard ({ trips }: { trips: Trip[] }): JSX.Element {
+  const [sortedTrips, setSortedTrips] = useState<Trip[]>(trips)
   return (
       <div className="flex flex-col gap-4 overflow-scroll w-3/5 h-full rounded-md shadow-sm shadow-slate-300 p-4">
-          <div>
-              <h1 className="text-xl text-center font-medium">All trips 🛫</h1>
+          <div className='flex justify-between items-center'>
+        <h1 className="text-xl font-medium">All trips 🛫</h1>
+          <SortTrips setSortedTrips={setSortedTrips} trips={trips}/>
           </div>
                 <Table>
                     <TableCaption>Your travelling history.</TableCaption>
@@ -26,7 +32,7 @@ export default function AllTravelsCard ({ trips }: { trips: Trip[] }): JSX.Eleme
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                  {trips.map((trip) => {
+                  {sortedTrips.map((trip) => {
                     return (
                                 <TableRow key={trip._id}>
                                     <TableCell>{trip.from}</TableCell>
