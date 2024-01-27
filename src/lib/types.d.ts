@@ -1,6 +1,8 @@
 export interface Trip {
   from: string
-  destiny: string
+  destination: string
   startDate: Date
   endDate: Date
+  description: string
+  userId?: string
 }

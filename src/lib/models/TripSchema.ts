@@ -5,9 +5,14 @@ const TripSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  destiny: {
+  destination: {
     type: String,
     required: true
+  },
+  description: {
+    type: String,
+    required: false,
+    maxLength: 2200
   },
   startDate: {
     type: String,
