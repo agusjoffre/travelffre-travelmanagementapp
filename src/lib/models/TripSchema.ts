@@ -16,7 +16,10 @@ const TripSchema = new mongoose.Schema({
   endDate: {
     type: String,
     required: true
+  },
+  userId: {
+    type: String,
+    required: true
   }
 })
-
-export default mongoose.models.TripSchema || mongoose.model('Trip', TripSchema)
+export default mongoose.models.Trip || mongoose.model('Trip', TripSchema)
