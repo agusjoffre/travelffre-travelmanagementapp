@@ -8,7 +8,7 @@ export default function NewTrip (): JSX.Element {
       <DialogTrigger asChild>
         <Button>New Trip</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] z-[1000]">
         <DialogHeader>
           <DialogTitle>Add a trip</DialogTitle>
           <DialogDescription>
