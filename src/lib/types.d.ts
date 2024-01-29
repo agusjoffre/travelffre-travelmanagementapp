@@ -14,3 +14,10 @@ export interface DestinationInfo {
   countryCode: string
   countryName: string
 }
+
+export interface TripsCollection {
+  name: string
+  description: string
+  trips: Trip[]
+  userId: string
+}

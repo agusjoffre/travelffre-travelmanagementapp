@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import NewTripForm from '@/app/components/NewTripForm'
-import { type City } from '@/lib/types'
-export default function NewTrip (): JSX.Element {
+import { getAllCollections } from '@/lib/actions/tripActions'
+export default async function NewTrip (): Promise<JSX.Element> {
   return (
       <div>
             <Dialog>
@@ -16,7 +16,7 @@ export default function NewTrip (): JSX.Element {
             Add a new trip to your account.
           </DialogDescription>
                   </DialogHeader>
-        <NewTripForm />
+        <NewTripForm collections={await getAllCollections()} />
       </DialogContent>
     </Dialog>
         </div>

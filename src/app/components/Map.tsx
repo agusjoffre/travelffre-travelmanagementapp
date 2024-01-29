@@ -11,7 +11,7 @@ function random (): string {
 
 export default function Map ({ tripInfo }: { tripInfo: DestinationInfo[] }): JSX.Element {
   return (
-    <div className="shadow-md w-full h-full">
+    <div className="shadow-md w-full min-h[40vh] max-h-[45vh] h-[45vh]">
       <MapContainer className='w-full h-full ' center={[0, 0]} zoom={2} scrollWheelZoom={true}>
         <TileLayer
 

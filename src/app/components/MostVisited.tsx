@@ -7,12 +7,18 @@ export default function MostVisited ({ trips }: { trips: Trip[] }): JSX.Element 
     return acc
   }, {})
   const orderedValues: Array<[any, any]> = Object.entries(counter).sort((a, b) => b[1] - a[1])
-  const mostVisited: string = orderedValues[0][0]
-
-  return (
+  if (orderedValues.length === 0) {
+    return (
+      <div className="shadow-sm shadow-slate-300 p-4 max-h-[7vh] flex gap-3">
+      <h3 className="text-md font-semibold">You didnt visit any destination </h3>
+        </div>)
+  } else {
+    const mostVisited: string = orderedValues[0][0]
+    return (
         <div className="shadow-sm shadow-slate-300 p-4 max-h-[7vh] flex gap-3">
       <h3 className="text-md font-semibold">Your most visited destination:</h3>
       <p>{mostVisited} - {counter[mostVisited]} times</p>
         </div>
-  )
+    )
+  }
 }

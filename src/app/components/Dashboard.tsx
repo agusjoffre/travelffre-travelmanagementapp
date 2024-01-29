@@ -19,7 +19,6 @@ export default async function Dashboard (): Promise<JSX.Element> {
     try {
       const tripInfo = userTrips.map(async (trip) => {
         const formattedDestinationName = trip.destination.trim().split(' ').join('')
-        console.log(formattedDestinationName)
         const res = await fetch(`${process.env.GEONAMES_URL}name=${formattedDestinationName}&maxRows=1&&fuzzy=0.5&username=${process.env.GEONAMES_USERNAME}`)
         const data = await res.json()
         return data.geonames[0] ? data.geonames[0] : null
@@ -42,7 +41,7 @@ export default async function Dashboard (): Promise<JSX.Element> {
           <MostVisited trips={userTrips}/>
         </div>
       </div>
-      <div className='flex flex-row max-h-[65vh] w-full'>
+      <div className='flex flex-row  max-h-[65vh] w-full'>
         <div className='flex flex-col min-h-fit w-1/3 gap-2'>
           <h2 className='text-2xl font-bold'>Wish trips</h2>
           <Button className='w-fit'>New wish</Button>
