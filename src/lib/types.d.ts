@@ -7,23 +7,10 @@ export interface Trip {
   userId?: string
 }
 
-export interface City {
-  adminCode1: string
-  lng: string
-  geonameId: number
-  toponymName: string
-  countryId: string
-  fcl: string
-  population: number
-  countryCode: string
-  name: string
-  fclName: string
-  adminCodes1: {
-    ISO3166_2: string
-  }
-  countryName: string
-  fcodeName: string
-  adminName1: string
+export interface DestinationInfo {
   lat: string
-  fcode: string
+  lng: string
+  name: string
+  countryCode: string
+  countryName: string
 }

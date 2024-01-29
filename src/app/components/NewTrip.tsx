@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import NewTripForm from '@/app/components/NewTripForm'
 import { type City } from '@/lib/types'
-export default function NewTrip ({ getCities }: { getCities: () => Promise<City[]> }): JSX.Element {
+export default function NewTrip (): JSX.Element {
   return (
       <div>
             <Dialog>
@@ -16,7 +16,7 @@ export default function NewTrip ({ getCities }: { getCities: () => Promise<City[
             Add a new trip to your account.
           </DialogDescription>
                   </DialogHeader>
-        <NewTripForm getCities={getCities}/>
+        <NewTripForm />
       </DialogContent>
     </Dialog>
         </div>
